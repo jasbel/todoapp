@@ -1,0 +1,98 @@
+/*******************
+ *      BASE
+ *******************/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0; //auto
+  padding: 0;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  @include on-event {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+
+html {
+  background-color: #221f1f;;
+  color: white;
+}
+
+.container {
+  max-width: 600px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -2px;
+  margin-left: -2px;
+}
+
+.col-sm-8,
+.col-12,
+.col-sm-5,
+.col-sm-7,
+.col-sm-4 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+.col{
+    &-sm-8 {
+        $aux: 100% * 8 / 12;
+        flex: 0 0 $aux;
+        max-width: $aux;
+    }
+    &-12 {
+        $aux: 100% * 12 / 12;
+        flex: 0 0 $aux;
+        max-width: $aux;
+    }
+    &-sm-5 {
+        $aux: 100% * 5 / 12;
+        flex: 0 0 $aux;
+        max-width: $aux;
+    }
+    &-sm-7 {
+        $aux: 100% * 7 / 12;
+        flex: 0 0 $aux;
+        max-width: $aux;
+    }
+    &-sm-4 {
+        $aux: 100% * 4 / 12;
+        flex: 0 0 $aux;
+        max-width: $aux;
+    }
+}
+.col-sm-8,
+.col-12,
+.col-sm-5,
+.col-sm-7,
+.col-sm-4 {
+    @media (max-width: 767.98px) {
+        $aux: 100% * 12 / 12;
+        flex: 0 0 $aux;
+        max-width: $aux;
+    }
+    
+}

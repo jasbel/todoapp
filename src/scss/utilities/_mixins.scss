@@ -1,0 +1,45 @@
+/// Friendly use of background property
+/// @author SmartInCode
+/// @param {String} $context
+@mixin bgi($bg-image, $bg-position: center center, $bg-repeat: no-repeat, $bg-size: cover) {
+  $bg-image: "../images/" + $bg-image;
+  background: url($bg-image) $bg-repeat $bg-position;
+  background-size: $bg-size;
+}
+/// Use FontFamily Conversion
+/// @param {String} $context
+@mixin fonts($ffamily, $fsize, $fweight: normal) {
+  font-family: $ffamily;
+  font-weight: $fweight;
+  font-size: $fsize;
+}
+
+
+/// Event wrapper
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+

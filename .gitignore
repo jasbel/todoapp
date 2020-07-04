@@ -1,0 +1,8 @@
+node_modules
+src/scss/vendors/_bootstrap.scss
+src/scss/vendors/_fontawesome.scss
+src/scss/vendors/_normalize.scss
+src/scss/vendors/_slick.scss
+src/index.html
+src/index.pug
+debug.log

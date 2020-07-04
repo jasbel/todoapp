@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import "utilities/variables", "utilities/mixins";
+
+// 2. Vendors
+// @import "vendors/normalize";
+// @import "vendors/bootstrap"; 
+// @import "vendors/fontawesome";  
+// @import "vendors/slick";
+
+// 3. Base stuff
+@import "base/base";
+
+// 4. Layout-related sections or partials
+// @import "layout/header", "layout/footer";
+
+// 5. Components
+@import "components/button";
+
+// 6. Page-specific styles
+@import "pages/all";
+
+// 7. Themes
+// @import "themes/default";

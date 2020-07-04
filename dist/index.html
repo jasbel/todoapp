@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoApp</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- prueba 2 -->
+    <section class="todolist">
+        <div class="container">
+            <h2 class="heading">todo list</h2>
+            <form id="formTask" class="todo-list" action="">
+               <div class="row">
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-12">
+                                <input id="descriptionTask" class="todo-list__description" type="text" placeholder="Introduce your list">
+                            </div>
+                            <div class="col-sm-5">
+                                <select id="colorTask" class="todo-list__color color">
+                                    <option class="todo-list__color-item color__item--1" >red</option>
+                                    <option class="todo-list__color-item color__item--2" >yellow</option>
+                                    <option class="todo-list__color-item color__item--3" >green</option>
+                                    <option class="todo-list__color-item color__item--4" >blue</option>
+                                    <option class="todo-list__color-item color__item--5" >pink</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-7">
+                                <input id="dateTask" class="todo-list__date" type="date", name="" placeholder="Date: mm/dd/yyyy"/>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="todo-list__btn btn ">SAVE</button>
+                    </div>
+               </div>
+            </form>
+            
+            <div id="card_list" class="card-list">
+                <div class="card">
+                    <div class="card__check">
+                        v
+                    </div>
+                    <div class="card__description">
+                        lorem
+                    </div>
+                    <div class="card__date">
+                        mm/dd/yyyy
+                    </div>
+                    <div class="card__delete">
+                        X
+                    </div>
+                    <div class="card__edit">
+                        edit
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- prueba 1 -->
+    <section class="todolist">
+        <div class="container">
+            <h2 class="heading">todo list</h2>
+            <form class="todo-list" action="">
+               <div class="row">
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-12">
+                                <input id="description" class="todo-list__description" type="text" placeholder="Introduce your task">
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="todo-list__color color">
+                                    <option class="todo-list__color-item color__item--1" >red</option>
+                                    <option class="todo-list__color-item color__item--2" >yellow</option>
+                                    <option class="todo-list__color-item color__item--3" >green</option>
+                                    <option class="todo-list__color-item color__item--4" >blue</option>
+                                    <option class="todo-list__color-item color__item--5" >pink</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-7">
+                                <input class="todo-list__date" type="date", name="" placeholder="Date: mm/dd/yyyy"/>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <button id="js_button_list"  class="todo-list__btn btn ">ADD</button>
+                    </div>
+               </div>
+            </form>
+            
+            <div id="card_list" class="card-list">
+                <div class="card">
+                    v
+                </div>
+                <div class="card">
+                    <div class="card__check">
+                        v
+                    </div>
+                    <div class="card__description">
+                        lorem
+                    </div>
+                    <div class="card__date">
+                        mm/dd/yyyy
+                    </div>
+                    <div class="card__delete">
+                        X
+                    </div>
+                    <div class="card__edit">
+                        edit
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__check">
+                        v
+                    </div>
+                    <div class="card__description">
+                        lorem
+                    </div>
+                    <div class="card__date">
+                        mm/dd/yyyy
+                    </div>
+                    <div class="card__delete">
+                        X
+                    </div>
+                    <div class="card__edit">
+                        edit
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
