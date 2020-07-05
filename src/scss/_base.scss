@@ -20,17 +20,12 @@ html {
 a {
   color: $brand-color;
   text-decoration: none;
-
-  @include on-event {
-    color: $text-color;
-    text-decoration: underline;
-  }
 }
 
 
 html {
-  background-color: #221f1f;;
-  color: white;
+  background-color: $color-bg;;
+  color: $color-text;
 }
 
 .container {

@@ -4,34 +4,48 @@ let colorTask= document.getElementById(['colorTask']);
 let dateTask= document.getElementById(['dateTask']);
 
 document.getElementById('formTask').addEventListener('submit', saveTask);
+document.getElementById('colorTask').addEventListener('change', colorSelect);
 
 function saveTask(e) {
     const description = descriptionTask.value;
     const color = colorTask.value;
     const date = dateTask.value;
-    const uniqID = 'id' + (new Date()).getTime();
-    let tasks;
-    
-    const task = {
-        description,
-        color,
-        date,
-        uniqID,
-    };
-    
-    const getTasks = JSON.parse(localStorage.getItem('tasks'));
-    
-    if (getTasks === null) {
-        tasks = [];
+    const todayDateValue = Date.parse(new Date());
+    const dateValue = Date.parse(date);
+    let dateBoolean = false;
+    if (dateValue < todayDateValue ) {
+        alert('fecha incorrecta, elija una fecha mayor a la de hoy');
     } else {
-        tasks = getTasks;
+        dateBoolean = true;
     }
-    tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    generateTasks();
-    
-    document.getElementById('formTask').reset();
-    e.preventDefault();
+    if(description != '' && dateBoolean == true) {
+        const uniqID = 'id' + (new Date()).getTime();
+        let tasks;
+        
+        const task = {
+            description,
+            color,
+            date,
+            uniqID,
+        };
+        
+        const getTasks = JSON.parse(localStorage.getItem('tasks'));
+        
+        if (getTasks === null) {
+            tasks = [];
+        } else {
+            tasks = getTasks;
+        }
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+
+        generateTasks();
+        clearForm();
+        
+        e.preventDefault();
+    } else {
+        alert('Escriba una descripcion de la tarea');
+    }
 }
 
 function deleteTask(uniqID) {
@@ -56,8 +70,8 @@ function generateTasks() {
         let color = tasks[i].color;
         let uniqID = tasks[i].uniqID;
 
-        tasksView.innerHTML += `<div class="card">
-            <div class="card__check"> ${color} </div>
+        tasksView.innerHTML += `<div class="card" style="background-color: ${color}">
+            <div class="card__check">  </div>
             <div class="card__description"> ${description} </div>
             <div class="card__date"> ${date}</div>
             <a href="#" onclick="deleteTask('${uniqID}')" class="card__delete">X</a>
@@ -67,86 +81,24 @@ function generateTasks() {
     console.log(tasks.length);
 }
 
-generateTasks();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//obtencion de da
-//generete close to card list
-const cardList = document.getElementsByClassName("card");
-// for (let i = 0; i < cardList.length; i++) {
-//     const spanClose = document.createElement("span");
-//     const txt = document.createTextNode("\u00D7");
-//     spanClose.className = "close"
-//     spanClose.appendChild(txt);
-//     cardList[i].appendChild(spanClose)
-
-//     const element = cardList[i];
-
-// }
-
-const close = document.getElementsByClassName("close")
-for (let i = 0; i < close.length; i++) {
-    close[i].onclick = () => {
-        const divParent = this.parentElement;
-        divParent.style.display = "none";
-    } ;
-
+function clearForm() {
+    document.getElementById('formTask').reset();
+    document.getElementById('dateTask').valueAsDate = new Date();
 }
 
-const list = document.querySelector('.card-list');
-list.addEventListener('click', function(ev) {
-    if(ev.target.className ==='card') {
-        encodeURI.target.classList.toggle('checked');
-    }
+function colorSelect() {
+    colorTask.style.backgroundColor = colorTask.value;
+    colorTask.style.color = 'transparent';
+}
 
-}, false)
+generateTasks();
+clearForm();
+colorSelect();
 
-const js_button = document.querySelector("#js_button_list");
-js_button.addEventListener("click", function(e) {
-    const addList = document.getElementById("card_list");
-    const newTask = document.createElement("div");
-    newTask.classList.add('card');
-    const inputValue = document.getElementById("description").value;
-    const listDescription = document.createTextNode(inputValue);
-    newTask.appendChild(listDescription);
-    if(inputValue === '') {
-        alert('Not Task ~~~');
-    } else {
-        addList.appendChild(newTask);
-        console.log(addList);
-    }
 
-    document.getElementById("description").value = "other";
 
-    const span = document.createElement("span");
-    const txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    newTask.appendChild(span);
 
-    for (let i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-            const div = this.parentElement;
-            div.style.display = "none";
-            console.log(this)
-        }
-    }
 
-    e.preventDefault();
-}, false);
+
+
 
